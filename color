@@ -1,0 +1,56 @@
+import random
+import turtle
+c=['red','green','black','blue','pink']
+sid=turtle.Screen()
+l=random.choice(c)
+sid.title("welcome")
+sid.bgcolor('lavender')
+sid=turtle.Turtle()
+sid.penup()
+sid.setpos(-140,290)
+if(l==c[0]):
+    sid.write("meet square with red",font=('Arial',20,'bold'))
+elif(l==c[1]):
+    sid.write("meet square with green",font=('Arial',20,'bold'))
+elif(l==c[2]):
+    sid.write("meet square with black",font=('Arial',20,'bold'))
+elif(l==c[3]):
+    sid.write("meet square with blue",font=('Arial',20,'bold'))
+else:
+    sid.write("meet point with pink",font=('Arial',20,'bold'))
+r1=random.randrange(-300,300,20)
+r2=random.randrange(-300,300,20)
+sid.setpos(r1,r2)
+sid.pensize(5)
+sid.color('yellow')
+sid.begin_fill()
+for i in range(4):
+    sid.forward(80)
+    sid.right(90)
+sid.end_fill()
+sid.setpos(0,0)
+def up():
+    sid.setheading(90)
+    sid.forward(50)
+def down():
+    sid.setheading(270)
+    sid.forward(50)
+def left():
+    sid.setheading(180)
+    sid.forward(50)
+def right():
+    sid.setheading(0)
+    sid.forward(50)
+def leftclick(x,y):
+    sid.color(random.choice(c))
+def rightclick(x,y):
+    sid=turtle.Screen()
+    sid.bgcolor(l)
+turtle.listen()
+turtle.onscreenclick(leftclick,1)
+turtle.onscreenclick(rightclick,3)
+turtle.onkey(up,'Up')
+turtle.onkey(down,'Down')
+turtle.onkey(left,'Left')
+turtle.onkey(right,'Right')
+turtle.mainloop()
